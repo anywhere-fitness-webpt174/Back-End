@@ -1,4 +1,4 @@
-const checkLoginPayload = async (req, res, next) => {
+module.exports = async (req, res, next) => {
     const creds = req.body;
 
     if(!creds.username || creds.username === '') {

@@ -1,4 +1,4 @@
-const checkRegisterPayload = async (req, res, next) => {
+module.exports = async (req, res, next) => {
     const newClient = req.body;
 
     if(newClient.name === '' || !newClient.name) {
@@ -13,5 +13,3 @@ const checkRegisterPayload = async (req, res, next) => {
         next();
     };
 };
-
-module.exports = { checkRegisterPayload };
