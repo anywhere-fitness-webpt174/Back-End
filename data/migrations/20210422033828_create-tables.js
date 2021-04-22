@@ -13,6 +13,7 @@ exports.up = function(knex) {
     .createTable('instructors', tbl => {
         tbl.increments('instructor_id');
         tbl.string('instructor_name', 128).notNullable();
+        tbl.string('instructor_username', 128).unique().notNullable();                                                                                                                                                                                                                                                                               
         tbl.string('instructor_email', 128).unique().notNullable();
         tbl.string('instructor_password', 128).notNullable();
     })
