@@ -25,7 +25,7 @@ exports.up = function(knex) {
         tbl.string('class_intensity').defaultTo('Beginner');
         tbl.string('class_description', 250).notNullable();
         tbl.bigInt('instructor_id').unsigned().notNullable().references('instructors.instructor_id').onDelete('CASCADE').onUpdate('CASCADE');
-        tbl.bigInt('client_id').unsigned().notNullable().references('clients.client_id').onDelete('CASCADE').onUpdate('CASCADE');
+        tbl.bigInt('client_id').unsigned().references('clients.client_id').onDelete('CASCADE').onUpdate('CASCADE');
     });
 };
 
