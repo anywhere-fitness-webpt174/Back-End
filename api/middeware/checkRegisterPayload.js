@@ -13,3 +13,5 @@ const checkRegisterPayload = async (req, res, next) => {
         next();
     };
 };
+
+module.exports = { checkRegisterPayload };
