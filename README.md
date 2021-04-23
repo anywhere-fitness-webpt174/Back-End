@@ -18,3 +18,27 @@ Back-End
     - [POST] "/auth/login"
         [success] => Returns Welcome message with clients username
         [error] => Returns message with appropriate error
+
+
+# CLIENT / INSTRUCTOR 
+    - [Client]
+        [need] client name (string)
+        [need] client username (string)
+        [need] client email (string)
+        [need] password (string)
+        [optional] client level (string) (defaults to beginner)
+        [optional] subscribed (boolean) (defaults to false)
+
+    - [Instructor]
+        [need] instructor name (string)
+        [need] instructor username (string)
+        [need] instructor email (string)
+        [need] instructor password (string)
+
+    - [Classes] 
+        [need] class name (string)
+        [need] class type (string)
+        [need] class start (datetime)
+        [need] class duration (string)
+        [optional] class intensity (string) (defaults to Beginner)
+        [need] class description (string, 250 characters)
