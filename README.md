@@ -3,7 +3,7 @@ Back-End
 
 
 # API BASE URL
-    - http://localhost:5000/
+    - https://protected-gorge-49043.herokuapp.com/
 
 
 # BASE ENDPOINTS
