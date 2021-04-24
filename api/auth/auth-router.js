@@ -4,7 +4,7 @@ const secrets = require('../secrets');
 
 const router = require('express').Router();
 
-const Clients = require('../clients/clients-model');
+const Clients = require('../clients/users-model');
 
 const checkRegisterPayload = require('../middeware/checkRegisterPayload');
 const checkLoginPayload = require('../middeware/checkLoginPayload');
