@@ -9,7 +9,7 @@ exports.up = function(knex) {
         tbl.string('user_password', 128).notNullable();
         tbl.string('user_level').defaultTo('Beginner');
         tbl.boolean('subscribed').defaultTo(false);
-        tbl.bigInteger('role').unsigned().references('roles.role_id').onDelete('CASCADE').onUpdate('CASCADE');
+        tbl.bigInt('role').unsigned().references('roles.role_id').onDelete('CASCADE').onUpdate('CASCADE');
     })
     .createTable('classes', tbl => {
         tbl.increments('class_id');
