@@ -28,7 +28,7 @@ Back-End
         [need] password (string)
         [optional] client level (string) (defaults to beginner)
         [optional] subscribed (boolean) (defaults to false)
-        [need] role (integer) (1 = Client, 2 = Instructor)
+        [need] role (integer) (1 = Client, 2 = Instructor) (Will default to Client if nothing is selected)
 
 
     - [Classes] 
