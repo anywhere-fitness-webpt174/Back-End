@@ -8,7 +8,7 @@ exports.seed = function(knex) {
       class_duration: "1 hour",
       class_intesity: "Profesional",
       class_description: "High-Intensity Pilates, for those who are expirienced. Get ready to feel the burn!!!",
-      instructor_id: 1,
+      class_instructor: 2,
     },
     {
       class_id: 2,
@@ -18,8 +18,7 @@ exports.seed = function(knex) {
       class_duration: "1 hour 30 minutes",
       class_intesity: "Intermediate",
       class_description: "Hot Yoga! We are going to be going over the new age Yoga, mixed with some old classics!",
-      instructor_id: 1,
-      client_id: 1
+      class_instructor: 2,
     },
     {
       class_id: 3,
@@ -29,7 +28,7 @@ exports.seed = function(knex) {
       class_duration: "2 hours",
       class_intesity: "Profesional",
       class_description: "Insanity!!! I have no idea what we are going to do!! Maybe a mile run? Weight training? Zumba?? Your guess is as good as mine!",
-      instructor_id: 2
+      class_instructor: 2
     }
   ]);
 };

@@ -28,12 +28,8 @@ Back-End
         [need] password (string)
         [optional] client level (string) (defaults to beginner)
         [optional] subscribed (boolean) (defaults to false)
+        [need] role (integer) (1 = Client, 2 = Instructor)
 
-    - [Instructor]
-        [need] instructor name (string)
-        [need] instructor username (string)
-        [need] instructor email (string)
-        [need] instructor password (string)
 
     - [Classes] 
         [need] class name (string)
@@ -42,3 +38,4 @@ Back-End
         [need] class duration (string)
         [optional] class intensity (string) (defaults to Beginner)
         [need] class description (string, 250 characters)
+        [need] class instructor (integer, user_id of instructor)
