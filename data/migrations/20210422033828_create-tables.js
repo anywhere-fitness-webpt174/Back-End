@@ -1,21 +1,15 @@
 
 exports.up = function(knex) {
   return knex.schema
-    .createTable('clients', tbl => {
-        tbl.increments('client_id');
-        tbl.string('client_name', 128).notNullable();
-        tbl.string('client_username', 128).unique().notNullable();
-        tbl.string('client_email', 128).unique().notNullable();
-        tbl.string('client_password', 128).notNullable();
-        tbl.string('client_level').defaultTo('Beginner');
+    .createTable('users', tbl => {
+        tbl.increments('user_id');
+        tbl.string('user_name', 128).notNullable();
+        tbl.string('user_username', 128).unique().notNullable();
+        tbl.string('user_email', 128).unique().notNullable();
+        tbl.string('user_password', 128).notNullable();
+        tbl.string('user_level').defaultTo('Beginner');
         tbl.boolean('subscribed').defaultTo(false);
-    })
-    .createTable('instructors', tbl => {
-        tbl.increments('instructor_id');
-        tbl.string('instructor_name', 128).notNullable();
-        tbl.string('instructor_username', 128).unique().notNullable();                                                                                                                                                                                                                                                                               
-        tbl.string('instructor_email', 128).unique().notNullable();
-        tbl.string('instructor_password', 128).notNullable();
+        tbl.bigInteger('role').unsigned().references('roles.role_id').onDelete('CASCADE').onUpdate('CASCADE');
     })
     .createTable('classes', tbl => {
         tbl.increments('class_id');
@@ -25,14 +19,18 @@ exports.up = function(knex) {
         tbl.string('class_duration').notNullable();
         tbl.string('class_intensity').defaultTo('Beginner');
         tbl.string('class_description', 250).notNullable();
-        tbl.bigInt('instructor_id').unsigned().notNullable().references('instructors.instructor_id').onDelete('CASCADE').onUpdate('CASCADE');
-        tbl.bigInt('client_id').unsigned().references('clients.client_id').onDelete('CASCADE').onUpdate('CASCADE');
-    });
+        tbl.bigInt('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
+        tbl.bigInt('attending').unsigned().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
+    })
+    .createTable('roles', tbl => {
+      tbl.increments('role_id');
+      tbl.integer('role_name');
+    })
 };
 
 exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists('classes')
     .dropTableIfExists('instructors')
-    .dropTableIfExists('clients')
+    .dropTableIfExists('users')
 };
