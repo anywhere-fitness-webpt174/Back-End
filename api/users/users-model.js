@@ -2,13 +2,13 @@ const db = require('../../data/dbConfig');
 
 function find() {
     return db('users as u')
-        .join("roles as r", "c.role", "=", "r.role_id")
+        .join("roles as r", "u.role", "=", "r.role_id")
         .select("u.user_id", "u.user_name", "u.user_username", "u.user_email", "u.user_level", "u.user_subscribed", "r.name as role");
 };
 
 function findBy(filter) {
     return db('users as u')
-        .join("roles as r", "c.role", "=", "r.role_id")
+        .join("roles as r", "u.role", "=", "r.role_id")
         .select("u.user_id", "u.user_name", "u.user_username", "u.user_email","u.user_password", "u.user_level", "u.user_subscribed", "r.name as role")
         .where(filter);
 };

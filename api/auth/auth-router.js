@@ -4,7 +4,7 @@ const secrets = require('../secrets');
 
 const router = require('express').Router();
 
-const Clients = require('../clients/users-model');
+constn Users = require('../users/users-model');
 
 const checkRegisterPayload = require('../middeware/checkRegisterPayload');
 const checkLoginPayload = require('../middeware/checkLoginPayload');
@@ -17,7 +17,7 @@ router.post("/register", checkRegisterPayload, async (req, res) => {
         const hash = bcryptjs.hashSync(credentials.password, 10);
         credentials.password = hash;
 
-        const client = await Clients.addClient(credentials);
+        const client = await Users.addClient(credentials);
         const token = generateToken(client);
 
         res.status(201).json({data: client, token });   
@@ -32,7 +32,7 @@ router.post("/login", checkLoginPayload, async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        const [client] = await Clients.findBy({ username: username });
+        const [client] = await Users.findBy({ username: username });
         if(client && bcryptjs.compareSync(password, client.password)) {
             const token = generateToken(client);
             res.status(200).json({message: `Welcome back ${username}`}, token, client.user_id, client.role);
