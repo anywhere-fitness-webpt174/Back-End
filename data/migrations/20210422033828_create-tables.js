@@ -20,8 +20,8 @@ exports.up = function(knex) {
         tbl.string('class_intensity').defaultTo('Beginner');
         tbl.string('class_description', 250).notNullable();
         tbl.bigInt('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
-        tbl.bigInt('attending').unsigned().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
-    })
+        tbl.specificType('attending', 'INT[]').unsigned().references('users.user_id').onDelete('CASCASDE').onUpdate('CASCADE');
+      })
     .createTable('roles', tbl => {
       tbl.increments('role_id');
       tbl.integer('role_name');

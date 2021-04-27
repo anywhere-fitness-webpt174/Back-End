@@ -26,9 +26,16 @@ async function addClient(newClient) {
     return findById(id);
 };
 
+async function addClassToSchedule(userId, classId) {
+    await db('classes as c')
+        .where('c.class_id', classId)
+        .insert(userId, ['attending']);
+}
+
 module.exports = {
     find,
     findBy,
     findById,
-    addClient
+    addClient,
+    addClassToSchedule
 };
