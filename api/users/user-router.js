@@ -41,3 +41,5 @@ router.post("/:id", restricted, (req, res) => {
             res.status(500).json({message: "Error adding class to your schedule", err: err});
         });
 });
+
+module.exports = router;
