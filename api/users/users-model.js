@@ -31,5 +31,4 @@ module.exports = {
     findBy,
     findById,
     addClient,
-    addClassToSchedule
 };
