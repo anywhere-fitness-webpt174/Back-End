@@ -1,6 +1,10 @@
 
 exports.up = function(knex) {
   return knex.schema
+    .createTableIfNotExists('roles', tbl => {
+      tbl.increments('role_id');
+      tbl.string('role_name').notNullable().unique();
+    })
     .createTableIfNotExists('users', tbl => {
         tbl.increments('user_id');
         tbl.string('user_name', 128).notNullable();
@@ -21,15 +25,11 @@ exports.up = function(knex) {
         tbl.string('class_description', 250).notNullable();
         tbl.bigint('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
     })
-    .createTableIfNotExists('roles', tbl => {
-      tbl.increments('role_id');
-      tbl.string('role_name').notNullable().unique();
-    })
 };
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists('roles')
-    .dropTableIfExists('classes')
     .dropTableIfExists('users')
+    .dropTableIfExists('classes')
+    .dropTableIfExists('roles')
 };
