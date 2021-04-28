@@ -20,7 +20,7 @@ exports.up = function(knex) {
         tbl.string('class_intensity').defaultTo('Beginner');
         tbl.string('class_description', 250).notNullable();
         tbl.bigint('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
-      })
+    })
     .createTableIfNotExists('roles', tbl => {
       tbl.increments('role_id');
       tbl.string('role_name');
