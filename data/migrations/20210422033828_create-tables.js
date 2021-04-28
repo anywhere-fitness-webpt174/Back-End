@@ -9,7 +9,7 @@ exports.up = function(knex) {
         tbl.string('user_password', 128).notNullable();
         tbl.string('user_level').defaultTo('Beginner');
         tbl.boolean('user_subscribed').defaultTo(false);
-        tbl.bigint('role').unsigned().references('roles.role_id').onDelete('CASCADE').onUpdate('CASCADE').defaultTo(2);
+        tbl.bigint('role').unsigned().references('role_id').inTable('roles').onDelete('CASCADE').onUpdate('CASCADE').defaultTo(2);
     })
     .createTableIfNotExists('classes', tbl => {
         tbl.increments('class_id');
@@ -23,7 +23,7 @@ exports.up = function(knex) {
     })
     .createTableIfNotExists('roles', tbl => {
       tbl.increments('role_id');
-      tbl.string('role_name');
+      tbl.string('role_name').notNullable().unique();
     })
 };
 
