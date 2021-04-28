@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
   return knex.schema
-    .createTable('users', tbl => {
+    .('users', tbl => {
         tbl.increments('user_id');
         tbl.string('user_name', 128).notNullable();
         tbl.string('user_username', 128).unique().notNullable();
@@ -11,7 +11,7 @@ exports.up = function(knex) {
         tbl.boolean('subscribed').defaultTo(false);
         tbl.bigint('role').unsigned().references('roles.role_id').onDelete('CASCADE').onUpdate('CASCADE').defaultTo(2);
     })
-    .createTable('classes', tbl => {
+    .createTableIfNotExists('classes', tbl => {
         tbl.increments('class_id');
         tbl.string('class_name', 128).notNullable();
         tbl.string('class_type', 128).notNullable();
@@ -21,7 +21,7 @@ exports.up = function(knex) {
         tbl.string('class_description', 250).notNullable();
         tbl.bigint('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
       })
-    .createTable('roles', tbl => {
+    .createTableIfNotExists('roles', tbl => {
       tbl.increments('role_id');
       tbl.string('role_name');
     })
