@@ -8,7 +8,7 @@ exports.up = function(knex) {
         tbl.string('user_email', 128).unique().notNullable();
         tbl.string('user_password', 128).notNullable();
         tbl.string('user_level').defaultTo('Beginner');
-        tbl.boolean('subscribed').defaultTo(false);
+        tbl.boolean('user_subscribed').defaultTo(false);
         tbl.bigint('role').unsigned().references('roles.role_id').onDelete('CASCADE').onUpdate('CASCADE').defaultTo(2);
     })
     .createTableIfNotExists('classes', tbl => {
