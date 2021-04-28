@@ -20,3 +20,5 @@ const restricted = async (req, res, next) => {
         res.status(500).json({message: "Invalid Token", ...error});
     };
 };
+
+module.exports = restricted;
