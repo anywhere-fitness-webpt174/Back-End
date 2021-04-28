@@ -23,7 +23,7 @@ exports.up = function(knex) {
       })
     .createTable('roles', tbl => {
       tbl.increments('role_id');
-      tbl.integer('role_name');
+      tbl.string('role_name');
     })
 };
 
