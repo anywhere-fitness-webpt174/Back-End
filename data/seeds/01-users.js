@@ -1,5 +1,17 @@
-exports.seed = function(knex) {
-  return knex('users').insert([
+exports.seed = async function(knex) {
+  await knex('users').truncate();
+  await knex('roles').truncate();
+  await knex('roles').insert([
+    {
+      role_id: 1,
+      name: "Client"
+    },
+    {
+      role_id: 2,
+      name: "Instructor"
+    }
+  ]);
+  await knex('users').insert([
     {
       user_id: 1,
       user_name: "Marcus Lee",
