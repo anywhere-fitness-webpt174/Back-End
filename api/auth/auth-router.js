@@ -29,18 +29,19 @@ router.post("/register", checkRegisterPayload, async (req, res) => {
 
 
 router.post("/login", checkLoginPayload, async (req, res) => {
-    const { username, password } = req.body;
+    const { user_username, user_password } = req.body;
 
     try {
-        const [client] = await Users.findBy({ username: username });
-        if(client && bcryptjs.compareSync(password, client.password)) {
+        const [client] = await Users.findBy({ user_username: user_username });
+        if(client && await bcryptjs.compareSync(user_password, client.user_password)) {
             const token = generateToken(client);
-            res.status(200).json({message: `Welcome back ${username}`}, token, client.user_id, client.role);
+            res.status(200).json({message: `Welcome back ${user_username}`}, token, client.user_id, client.role);
         } else {
             res.status(401).json({message: "Invalid credentials"});
         };
     } catch (error) {
-        res.status(500).json({message: "Error logging in", ...err});
+        console.error(error);
+        res.status(500).json({message: "Error logging in", ...error});
     };
 });
 
