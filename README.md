@@ -13,16 +13,18 @@ Back-End
 # AUTHENTIFICATION ENDPOINTS
     - [POST] "/auth/register"
         [success] => Returns Client info, and token
+
             REQUEST
-            ```{
+                {
                 "user_name": "Alex Pedro",
                 "user_username": "alexpe",
                 "user_email": "madreo@gmail.com",
                 "user_password": "pepevalle"
-                }```
+                }
+
 
             RESPONSE
-            ```{
+                {
                 "data": {
                     "user_id": 8,
                     "user_name": "Alex Pedro",
@@ -33,14 +35,26 @@ Back-End
                     "role": "Instructor"
                 },
                 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo4LCJ1c2VybmFtZSI6ImFsZXhwZSIsImlhdCI6MTYxOTU4NjI4MSwiZXhwIjoxNjE5NjcyNjgxfQ.eKaOBHgdCt5RztChfcXNbwl9ZITXO_39ORy2C0I5HgQ"
-                }```
+                }
 
-                
+
         [error] =>  Returns message with appropriate error
 
 
     - [POST] "/auth/login"
         [success] => Returns Welcome message with clients username
+            REQUEST
+            ```{
+                "user_username": "button",
+                "user_password": "stillluvangie"
+                }```
+            
+            RESPONSE
+            ```{
+                "message": "Welcome back alexpe"
+                }```
+
+                
         [error] => Returns message with appropriate error
 
 
