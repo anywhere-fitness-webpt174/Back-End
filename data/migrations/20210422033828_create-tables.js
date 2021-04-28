@@ -19,7 +19,7 @@ exports.up = function(knex) {
         tbl.string('class_duration').notNullable();
         tbl.string('class_intensity').defaultTo('Beginner');
         tbl.string('class_description', 250).notNullable();
-        tbl.bigInt('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
+        tbl.bigint('class_instructor').unsigned().notNullable().references('users.user_id').onDelete('CASCADE').onUpdate('CASCADE');
       })
     .createTable('roles', tbl => {
       tbl.increments('role_id');
@@ -29,7 +29,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
+    .dropTableIfExists('roles')
     .dropTableIfExists('classes')
-    .dropTableIfExists('instructors')
     .dropTableIfExists('users')
 };
