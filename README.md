@@ -3,7 +3,7 @@ Back-End
 
 
 # API BASE URL
-    - https://protected-gorge-49043.herokuapp.com/
+    - https://protected-gorge-49043.herokuapp.com/api
 
 
 # BASE ENDPOINTS
