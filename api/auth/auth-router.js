@@ -14,8 +14,8 @@ router.post("/register", checkRegisterPayload, async (req, res) => {
     const credentials = req.body;
 
     try {
-        const hash = bcryptjs.hashSync(credentials.password, 10);
-        credentials.password = hash;
+        const hash = await bcryptjs.hashSync(credentials.user_password, 10);
+        credentials.user_password = hash;
 
         const client = await Users.addClient(credentials);
         const token = generateToken(client);
@@ -47,8 +47,8 @@ router.post("/login", checkLoginPayload, async (req, res) => {
 
 function generateToken(user) {
     const payload = {
-        subject: user.id,
-        username: user.username,
+        subject: user.user_id,
+        username: user.user_username,
     };
 
     const options = {
