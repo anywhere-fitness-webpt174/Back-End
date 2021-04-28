@@ -43,16 +43,18 @@ Back-End
 
     - [POST] "/auth/login"
         [success] => Returns Welcome message with clients username
+
             REQUEST
-            ```{
+                {
                 "user_username": "button",
                 "user_password": "stillluvangie"
-                }```
+                }
+
             
             RESPONSE
-            ```{
+                {
                 "message": "Welcome back alexpe"
-                }```
+                }
 
                 
         [error] => Returns message with appropriate error
