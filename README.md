@@ -85,4 +85,51 @@ Back-End
         [success] => Returns an array of all users
 
         REQUEST
+            https://protected-gorge-49043.herokuapp.com/api/users/
+
+
+        RESPONSE
+            [
+                {
+                    "user_id": 1,
+                    "user_name": "Marcus Lee",
+                    "user_username": "TheBest",
+                    "user_email": "marcuslee@gmail.com",
+                    "user_level": "Intermediate",
+                    "user_subscribed": 0,
+                    "role": "Client"
+                },
+                {
+                    "user_id": 2,
+                    "user_name": "Jack Black",
+                    "user_username": "Singer",
+                    "user_email": "tenD@gmail.com",
+                    "user_level": "Profesional",
+                    "user_subscribed": 1,
+                    "role": "Client"
+                },
+                {
+                    "user_id": 3,
+                    "user_name": "Brad Pitt",
+                    "user_username": "button",
+                    "user_email": "brad@aol.com",
+                    "user_level": "Profesional",
+                    "user_subscribed": 1,
+                    "role": "Instructor"
+                },
+                ect....
+            ]
+
+    -[GET] "/:id"
+        [success] => Returns Information on one specific user
+
+        REQUEST
+            https://protected-gorge-49043.herokuapp.com/api/users/1
+
+        RESPONSE
+            
+
+
+        [error] => Returns message with appropriate error
+
             
