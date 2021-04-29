@@ -60,6 +60,12 @@ Back-End
         [error] => Returns message with appropriate error
 
 
+    - [DELETE] "/auth/signout"
+        [success] => Returns "Logged out successfully"
+
+        [error] => Returns "Error logging out"
+
+
 # CLIENT / INSTRUCTOR 
     - [Client]
         [need] client name (string)

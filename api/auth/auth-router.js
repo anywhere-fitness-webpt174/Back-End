@@ -50,7 +50,7 @@ router.get('/signout', (req, res) => {
     req.logout();
     if (!req.session) {
         req.session.destroy(function(err) {
-        res.status(200).json({message: "Logout successfully"});
+        res.status(200).json({message: "Logged out successfully"});
       });
     }
     else {
