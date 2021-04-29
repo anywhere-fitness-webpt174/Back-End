@@ -26,9 +26,14 @@ async function addClient(newClient) {
     return findById(id);
 };
 
+function deleteById(id) {
+    return db('users').del().where({id});   
+};
+
 module.exports = {
     find,
     findBy,
     findById,
     addClient,
+    deleteById
 };
