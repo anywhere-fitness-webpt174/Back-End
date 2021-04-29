@@ -198,4 +198,24 @@ Back-End
 
         [error] => Returns appropriate error message
 
-    
+    -[GET] "/classess/:id"
+        [success] => Returns information on specific class
+        
+        REQUEST
+        https://protected-gorge-49043.herokuapp.com/api/classes
+
+        RESPONSE
+        {
+            "classes": {
+                "class_id": 1,
+                "class_name": "Pro Pilates",
+                "class_type": "Pilates",
+                "class_start": "2021-08-24 14-30-00",
+                "class_duration": "1 hour",
+                "class_intensity": "Profesional",
+                "class_description": "High-Intensity Pilates, for those who are expirienced. Get ready to feel the burn!!!",
+                "class_instructor": "Jack Black"
+            }
+        }
+
+        [error] => Returns appropriate error message
