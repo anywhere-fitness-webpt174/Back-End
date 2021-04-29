@@ -143,3 +143,7 @@ Back-End
         [error] => Returns message with appropriate error
 
             
+    -[DELETE] "/:id"
+        [success] => Returns "User has been deleted"
+
+        [error] => Returns "Error deleting profile"
