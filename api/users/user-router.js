@@ -1,20 +1,19 @@
 const router = require('express').Router();
 
 const Users = require('./users-model');
-const restricted = require('../middeware/restricted');
+// const restricted = require('../middeware/restricted');
 
-router.get("/", restricted, (req, res) => {
-    Users.find()
-        .then(users => {
-            res.status(200).json(users);
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).json({message: "Error retrieving Users", err: err});
-        });
+router.get("/", async (req, res) => {
+    try {
+        const users = await Users.find();
+        res.status(200).json(users);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Error retrieving the users", ...err});
+    };
 });
 
-router.get("/:id", restricted, (req, res) => {
+router.get("/:id", (req, res) => {
     const id = req.params;
 
     Users.findById(id)
