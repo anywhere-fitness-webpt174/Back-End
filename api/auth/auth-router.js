@@ -46,6 +46,18 @@ router.post("/login", checkLoginPayload, async (req, res) => {
     };
 });
 
+router.get('/signout', (req, res) => {
+    req.logout();
+    if (!req.session) {
+        req.session.destroy(function(err) {
+        res.status(200).json({message: "Logout successfully"});
+      });
+    }
+    else {
+      res.status(500).json({message: "Error logging out"});
+    };
+});
+
 
 function generateToken(user) {
     const payload = {
