@@ -22,7 +22,7 @@ function findById(id) {
 };
 
 async function addClass(newClass) {
-    const [id] = await db('classes').insert(newClient);
+    const [id] = await db('classes').insert(newClass);
     return findById(id);
 };
 
