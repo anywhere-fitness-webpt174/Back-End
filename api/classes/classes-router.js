@@ -28,3 +28,5 @@ router.get("/:id", (req, res) => {
             res.status(500).json({message: "Error retrieving this class"});
         });
 });
+
+module.exports = router;
