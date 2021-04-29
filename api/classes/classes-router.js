@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const Classes = require('./classes-model');
-const restricted = require('../middeware/restricted');
+// const restricted = require('../middeware/restricted');
 const checkRole = require('../middeware/checkRole');
 const checkClassPayload = require('../middeware/checkClassPayload');
 
@@ -28,5 +28,16 @@ router.get("/:id", (req, res) => {
             res.status(500).json({message: "Error retrieving this class"});
         });
 });
+
+router.delete("/:id", async (req, res) => {
+    try {
+    await Classes.deleteById(req.params.id);
+    res.status(200).json({message: "Class has been deleted"});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Error deleting class"});
+    };
+});
+
 
 module.exports = router;
