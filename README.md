@@ -127,7 +127,17 @@ Back-End
             https://protected-gorge-49043.herokuapp.com/api/users/1
 
         RESPONSE
-            
+            {
+            "user": {
+                "user_id": 1,
+                "user_name": "Marcus Lee",
+                "user_username": "TheBest",
+                "user_email": "marcuslee@gmail.com",
+                "user_level": "Intermediate",
+                "user_subscribed": 0,
+                "role": "Client"
+            }
+            }
 
 
         [error] => Returns message with appropriate error
