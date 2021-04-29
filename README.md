@@ -219,3 +219,38 @@ Back-End
         }
 
         [error] => Returns appropriate error message
+
+    -[POST] "/api/classes/"
+        [success] => Returns information about class just created
+
+        REQUEST
+        {
+            "class_name": "Pirates Booty",
+            "class_type": "Zumba",
+            "class_start": "2020-11-04 14:55:45",
+            "class_duration": "1 hour",
+            "class_intensity": "Intermediate",
+            "class_description": "A full zumbda work out that targets your glutes, so you can feel prepaed this summer!!",
+            "class_instructor": 3
+        }
+
+        RESPONSE
+        {
+        "NewClass": {
+            "class_id": 4,
+            "class_name": "Pirates Booty",
+            "class_type": "Zumba",
+            "class_start": "2020-11-04 14:55:45",
+            "class_duration": "1 hour",
+            "class_intensity": "Intermediate",
+            "class_description": "A full zumbda work out that targets your glutes, so you can feel prepaed this summer!!",
+            "class_instructor": "Brad Pitt"
+            }
+        }
+
+        [error] => Returns appropriate error message
+
+    -[DELETE] "/api/classes/:id"
+        [success] => Returns "Class has been deleted"
+
+        [error] => Returns "Error deleting class"
