@@ -87,7 +87,7 @@ Back-End
         [need] class instructor (integer, user_id of instructor)
 
 # USER ENDPOINTS
-    -[GET] "/"
+    -[GET] "/users"
         [success] => Returns an array of all users
 
         REQUEST
@@ -126,7 +126,7 @@ Back-End
                 ect....
             ]
 
-    -[GET] "/:id"
+    -[GET] "/users/:id"
         [success] => Returns Information on one specific user
 
         REQUEST
@@ -149,7 +149,53 @@ Back-End
         [error] => Returns message with appropriate error
 
             
-    -[DELETE] "/:id"
+    -[DELETE] "/users/:id"
         [success] => Returns "User has been deleted"
 
         [error] => Returns "Error deleting profile"
+
+
+# CLASSES ENDPOINTS
+    -[GET] "/classes"
+        [success] => Returns an array of classes
+
+        REQUEST
+        https://protected-gorge-49043.herokuapp.com/api/classes
+
+        RESPONSE
+        [
+            {
+                "class_id": 1,
+                "class_name": "Pro Pilates",
+                "class_type": "Pilates",
+                "class_start": "2021-08-24 14-30-00",
+                "class_duration": "1 hour",
+                "class_intensity": "Profesional",
+                "class_description": "High-Intensity Pilates, for those who are expirienced. Get ready to feel the burn!!!",
+                "class_instructor": "Jack Black"
+            },
+            {
+                "class_id": 2,
+                "class_name": "Hot Yoga",
+                "class_type": "Yoga",
+                "class_start": "2021-08-25 14-30-00",
+                "class_duration": "1 hour 30 minutes",
+                "class_intensity": "Intermediate",
+                "class_description": "Hot Yoga! We are going to be going over the new age Yoga, mixed with some old classics!",
+                "class_instructor": "Jack Black"
+            },
+            {
+                "class_id": 3,
+                "class_name": "Insanity",
+                "class_type": "All of it",
+                "class_start": "2021-08-26 14-30-00",
+                "class_duration": "2 hours",
+                "class_intensity": "Profesional",
+                "class_description": "Insanity!!! I have no idea what we are going to do!! Maybe a mile run? Weight training? Zumba?? Your guess is as good as mine!",
+                "class_instructor": "Jack Black"
+            }
+        ]
+
+        [error] => Returns appropriate error message
+
+    
