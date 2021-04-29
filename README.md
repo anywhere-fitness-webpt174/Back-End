@@ -79,3 +79,10 @@ Back-End
         [optional] class intensity (string) (defaults to Beginner)
         [need] class description (string, 250 characters)
         [need] class instructor (integer, user_id of instructor)
+
+# USER ENDPOINTS
+    -[GET] "/"
+        [success] => Returns an array of all users
+
+        REQUEST
+            
