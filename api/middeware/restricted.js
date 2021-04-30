@@ -3,7 +3,7 @@ const secret = require('../secrets/index');
 
 module.exports = (req, res, next) => {
     try {
-        const token = req.header.authorization?.split(' ')[1];
+        const token = req.token?.split(' ')[1];
 
         if(token) {
             jwt.verify(token, secret.jwtSecret, (err, decodedToken) => {
