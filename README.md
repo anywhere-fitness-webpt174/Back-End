@@ -46,14 +46,17 @@ Back-End
 
             REQUEST
                 {
-                "user_username": "button",
-                "user_password": "stillluvangie"
+                    "user_username": "whocares",
+                    "user_password": "boss"
                 }
 
             
             RESPONSE
                 {
-                "message": "Welcome back alexpe"
+                "message": "Welcome back whocares",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxNCwidXNlcl91c2VybmFtZSI6Indob2NhcmVzIiwidXNlcl9yb2xlbmFtZSI6Ik9sZG1hbiBKZW5raW5zIiwiaWF0IjoxNjE5NzU2MDA0LCJleHAiOjE2MTk4NDI0MDR9.3fmYUf6dM_8dG4hdU1ljxy2FXUIVbEK4vwYhd9KN2GE",
+                "user_id": 14,
+                "role": "Instructor"
                 }
 
                 
