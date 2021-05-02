@@ -20,8 +20,9 @@ Back-End
                 "user_username": "alexpe",
                 "user_email": "madreo@gmail.com",
                 "user_password": "pepevalle"
+                "role": "Instructor"
                 }
-
+                role will default to "Beginner" If not included
 
             RESPONSE
                 {
