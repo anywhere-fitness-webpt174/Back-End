@@ -20,9 +20,9 @@ Back-End
                 "user_username": "alexpe",
                 "user_email": "madreo@gmail.com",
                 "user_password": "pepevalle"
-                "role": "Instructor"
+                "role": "2"  // Role is based off integer. 1 being Client, and 2 being Instructor. If no role is specified it will default to Client
                 }
-                role will default to "Beginner" If not included
+                
 
             RESPONSE
                 {
